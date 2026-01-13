@@ -10,131 +10,77 @@
     :root{
       --bg: #0b1020;
       --panel: rgba(255,255,255,.06);
-      --panel-2: rgba(255,255,255,.10);
+      --panel2: rgba(255,255,255,.10);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
       --border: rgba(255,255,255,.14);
       --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius: 18px;
-      --radius-sm: 14px;
-      --pad: 22px;
-      --max: 980px;
+      --r: 18px;
+      --rs: 14px;
+      --max: 1020px;
       --accent: #8bd3ff;
-      --accent-2: #b8f7d4;
     }
-
     @media (prefers-color-scheme: light){
       :root{
         --bg: #f6f7fb;
         --panel: rgba(0,0,0,.04);
-        --panel-2: rgba(0,0,0,.06);
+        --panel2: rgba(0,0,0,.06);
         --text: rgba(0,0,0,.88);
         --muted: rgba(0,0,0,.60);
         --border: rgba(0,0,0,.10);
         --shadow: 0 18px 40px rgba(0,0,0,.12);
         --accent: #0066ff;
-        --accent-2: #0a8f5a;
       }
     }
-
     *{ box-sizing: border-box; }
-    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
       background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(139,211,255,.28), transparent 60%),
-        radial-gradient(900px 600px at 90% 0%, rgba(184,247,212,.22), transparent 55%),
-        radial-gradient(900px 700px at 50% 120%, rgba(139,211,255,.10), transparent 60%),
+        radial-gradient(1100px 600px at 12% -10%, rgba(139,211,255,.25), transparent 60%),
+        radial-gradient(900px 600px at 92% 0%, rgba(184,247,212,.18), transparent 55%),
         var(--bg);
       line-height: 1.45;
     }
-
     a{ color: inherit; text-decoration: none; }
     a:hover{ text-decoration: underline; text-underline-offset: 3px; }
 
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 34px 18px 56px;
-    }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 34px 18px 56px; }
 
     header{
-      display:flex;
-      gap: 18px;
-      align-items: flex-start;
-      justify-content: space-between;
+      display:flex; gap:18px; align-items:flex-start; justify-content: space-between;
       margin-bottom: 18px;
     }
-
-    .title{
-      display:flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    h1{
-      margin:0;
-      font-size: clamp(26px, 3.2vw, 38px);
-      letter-spacing: -0.02em;
-    }
-
-    .subtitle{
-      margin:0;
-      color: var(--muted);
-      font-size: 15px;
-      max-width: 68ch;
-    }
+    h1{ margin:0; font-size: clamp(26px, 3.2vw, 38px); letter-spacing:-0.02em; }
+    .subtitle{ margin:8px 0 0; color: var(--muted); font-size: 15px; max-width: 70ch; }
 
     .badge{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      color: var(--muted);
-      font-size: 13px;
-      white-space: nowrap;
-      user-select: none;
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 12px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--panel);
+      color: var(--muted); font-size: 13px; user-select:none; white-space:nowrap;
     }
 
     .panel{
       border: 1px solid var(--border);
       background: var(--panel);
-      border-radius: var(--radius);
+      border-radius: var(--r);
       box-shadow: var(--shadow);
     }
 
-    .controls{
-      padding: var(--pad);
-      display:grid;
-      gap: 14px;
-    }
+    .controls{ padding: 18px; display:grid; gap: 12px; }
+    .row{ display:flex; gap: 12px; flex-wrap: wrap; align-items:center; justify-content: space-between; }
 
-    .searchRow{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items:center;
-      justify-content: space-between;
-    }
-
-    .search{
-      flex: 1 1 360px;
-      position: relative;
-    }
-
+    .search{ flex: 1 1 420px; position: relative; }
     .search input{
-      width: 100%;
+      width:100%;
       padding: 12px 14px 12px 42px;
       border-radius: 14px;
       border: 1px solid var(--border);
       background: rgba(255,255,255,.06);
       color: var(--text);
-      outline: none;
+      outline:none;
       font-size: 15px;
     }
     @media (prefers-color-scheme: light){
@@ -144,58 +90,58 @@
       border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
       box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
     }
-
     .search svg{
-      position:absolute;
-      left: 13px;
-      top: 50%;
+      position:absolute; left: 13px; top: 50%;
       transform: translateY(-50%);
       opacity: .65;
     }
 
-    .metaRow{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items:center;
-      justify-content: space-between;
+    .chips{ display:flex; gap: 8px; flex-wrap: wrap; }
+    .chip{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
       color: var(--muted);
       font-size: 13px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip[aria-pressed="true"]{
+      background: var(--panel2);
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--panel-2);
-      color: var(--text);
-      cursor: pointer;
-      font-size: 14px;
-      user-select: none;
+    .meta{ display:flex; gap: 10px; flex-wrap: wrap; justify-content: space-between; color: var(--muted); font-size: 13px; }
+    .meta strong{ color: var(--text); font-weight: 600; }
+
+    .section{ padding: 18px; }
+    .section + .section{ padding-top: 0; }
+
+    .sectionHead{
+      display:flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      margin: 6px 0 12px;
     }
-    .btn:hover{ filter: brightness(1.05); }
-    .btn:active{ transform: translateY(1px); }
+    .sectionTitle{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .sectionCount{ color: var(--muted); font-size: 13px; }
 
     .grid{
-      padding: var(--pad);
       display:grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
-    @media (max-width: 720px){
-      .grid{ grid-template-columns: 1fr; }
-      header{ flex-direction: column; align-items: stretch; }
-      .badge{ align-self: flex-start; }
-    }
+    @media (max-width: 720px){ .grid{ grid-template-columns: 1fr; } }
 
     .card{
       border: 1px solid var(--border);
       background: rgba(255,255,255,.04);
-      border-radius: var(--radius-sm);
-      padding: 16px 16px 14px;
+      border-radius: var(--rs);
+      padding: 16px;
       display:flex;
       flex-direction: column;
       gap: 10px;
@@ -204,85 +150,40 @@
     @media (prefers-color-scheme: light){
       .card{ background: rgba(255,255,255,.72); }
     }
-    .card:hover{
-      transform: translateY(-2px);
-      background: rgba(255,255,255,.06);
-    }
-    @media (prefers-color-scheme: light){
-      .card:hover{ background: rgba(255,255,255,.86); }
-    }
+    .card:hover{ transform: translateY(-2px); }
+    .docTitle{ margin:0; font-size: 16px; }
+    .docDesc{ margin:0; color: var(--muted); font-size: 13px; }
 
-    .cardTop{
-      display:flex;
-      gap: 12px;
-      align-items:flex-start;
-      justify-content: space-between;
-    }
-
-    .docTitle{
-      margin:0;
-      font-size: 16px;
-      letter-spacing: -0.01em;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 12px;
-      white-space: nowrap;
-    }
-
-    .cardDesc{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .actions{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 2px;
-    }
-
-    .link{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
+    .actions{ display:flex; gap: 10px; flex-wrap: wrap; }
+    .btnLink{
+      display:inline-flex; align-items:center; gap: 8px;
       padding: 9px 10px;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: transparent;
       font-size: 13px;
-      color: var(--text);
     }
-    .link:hover{
+    .btnLink:hover{
       background: color-mix(in srgb, var(--accent) 10%, transparent);
       text-decoration: none;
     }
 
+    .tags{ color: var(--muted); font-size: 12px; }
+
     footer{
-      margin-top: 18px;
-      padding: 14px 4px;
-      color: var(--muted);
-      font-size: 13px;
-      display:flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+      margin-top: 18px; padding: 14px 4px;
+      color: var(--muted); font-size: 13px;
+      display:flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
     }
 
-    /* Escondemos a lista "original" (fonte de dados), mas mantemos no HTML */
+    /* A lista fonte (dados) fica escondida */
     ul#pdf-list{ display:none; }
+
     .empty{
-      padding: 10px 2px 2px;
+      padding: 12px 18px 20px;
       color: var(--muted);
       font-size: 14px;
+      display:none;
     }
   </style>
 </head>
@@ -290,9 +191,11 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="title">
+      <div>
         <h1>Materiais em PDF</h1>
-        <p class="subtitle">Coleção de documentos (slides, fichas e apontamentos). Usa a pesquisa para encontrares rapidamente um tema.</p>
+        <p class="subtitle">
+          Documentos organizados por categoria. Usa a pesquisa e o filtro para encontrares rapidamente um tema.
+        </p>
       </div>
       <div class="badge" title="Hospedado em GitHub Pages">
         <span style="display:inline-block;width:8px;height:8px;border-radius:999px;background:var(--accent);"></span>
@@ -300,8 +203,8 @@
       </div>
     </header>
 
-    <section class="panel controls" aria-label="Pesquisa e ações">
-      <div class="searchRow">
+    <section class="panel controls" aria-label="Pesquisa e filtros">
+      <div class="row">
         <div class="search">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M10.5 19a8.5 8.5 0 1 1 0-17 8.5 8.5 0 0 1 0 17Z" stroke="currentColor" stroke-width="2"/>
@@ -310,79 +213,87 @@
           <input id="q" type="search" placeholder="Pesquisar (ex.: globalização, PIB, externalidades)..." autocomplete="off" />
         </div>
 
-        <button class="btn" id="openAll" type="button" title="Abrir todos os PDFs filtrados em separadores">
-          <span aria-hidden="true">↗</span> Abrir filtrados
-        </button>
+        <div class="chips" aria-label="Filtro por categoria">
+          <button class="chip" data-filter="__all" aria-pressed="true">Todas</button>
+          <button class="chip" data-filter="Economia A 10º" aria-pressed="false">Econ A 10º</button>
+          <button class="chip" data-filter="Economia A 11º" aria-pressed="false">Econ A 11º</button>
+          <button class="chip" data-filter="Economia C 12º" aria-pressed="false">Econ C 12º</button>
+          <button class="chip" data-filter="Profissionais" aria-pressed="false">Profissionais</button>
+          <button class="chip" data-filter="Diversos" aria-pressed="false">Diversos</button>
+        </div>
       </div>
 
-      <div class="metaRow">
-        <div><span id="count">0</span> documentos</div>
-        <div>Dica: escreve “globalização” ou “regionalização”</div>
+      <div class="meta">
+        <div>Total: <strong><span id="total">0</span></strong> documentos</div>
+        <div>Filtro: <strong><span id="activeFilter">Todas</span></strong></div>
       </div>
     </section>
 
     <section class="panel" style="margin-top:14px;">
-      <div class="grid" id="cards" aria-label="Lista de documentos"></div>
-      <div class="empty" id="empty" style="display:none; padding: 0 22px 22px;">
-        Não encontrei resultados para essa pesquisa.
-      </div>
+      <div id="sections"></div>
+      <div class="empty" id="empty">Não encontrei resultados para a pesquisa/filtro atual.</div>
     </section>
 
     <footer>
       <div>© <span id="year"></span> — Miguel Rodrigues</div>
-      <div>
-        <a href="https://github.com/miguelpalhoto/pdf-economia" target="_blank" rel="noopener">Ver repositório</a>
-      </div>
+      <div><a href="https://github.com/miguelpalhoto/pdf-economia" target="_blank" rel="noopener">Ver repositório</a></div>
     </footer>
 
     <!--
-      FONTE DE DADOS: adiciona aqui os teus PDFs.
-      - href tem de ser RELATIVO: "pdf/ficheiro.pdf" (sem / no início)
-      - data-tags e data-desc são opcionais (ajudam na pesquisa e layout)
+      FONTE DE DADOS (adiciona PDFs aqui)
+      Regras:
+      - href: SEM barra inicial. Ex: "pdf/ficheiro.pdf"
+      - data-cat: uma das categorias abaixo (exatamente igual):
+          "Economia A 10º" | "Economia A 11º" | "Economia C 12º" | "Profissionais" | "Diversos"
+      - data-tags / data-desc são opcionais (ajudam na pesquisa)
     -->
     <ul id="pdf-list">
       <li>
         <a href="pdf/Beamer_GLOBALIZACAO1.pdf"
+           data-cat="Economia C 12º"
            data-title="Conteúdo do tema Globalização e regionalização económica"
-           data-tags="economia c, 12º, globalização, regionalização, slides"
+           data-tags="globalização, regionalização, slides, beamer"
            data-desc="Slides/Beamer — síntese do tema, conceitos e exemplos.">
           Conteúdo do tema Globalização e regionalização económica
         </a>
       </li>
 
-      <!-- EXEMPLOS: duplica e altera
-      <li><a href="pdf/PIB_definicao.pdf" data-title="PIB — Definição" data-tags="economia a, 10º, pib" data-desc="Apontamentos curtos com definição e exemplo.">PIB — Definição</a></li>
-      <li><a href="pdf/Externalidades.pdf" data-title="Externalidades" data-tags="economia c, 12º, externalidades" data-desc="Fichas e exercícios com soluções.">Externalidades</a></li>
+      <!-- EXEMPLOS (duplica depois):
+      <li><a href="pdf/PIB_definicao.pdf" data-cat="Economia A 10º" data-title="PIB — Definição" data-tags="pib, bens e serviços" data-desc="Definição e exemplo simples.">PIB — Definição</a></li>
+      <li><a href="pdf/mercado_trabalho.pdf" data-cat="Economia A 11º" data-title="Mercado de trabalho" data-tags="desemprego, salários" data-desc="Resumo + exercícios.">Mercado de trabalho</a></li>
+      <li><a href="pdf/custos_fixos_variaveis.pdf" data-cat="Profissionais" data-title="Custos fixos e variáveis" data-tags="contabilidade analítica, pap" data-desc="Fichas de apoio.">Custos fixos e variáveis</a></li>
+      <li><a href="pdf/outros.pdf" data-cat="Diversos" data-title="Notas diversas" data-tags="vários" data-desc="Materiais complementares.">Notas diversas</a></li>
       -->
     </ul>
   </div>
 
   <script>
     (function () {
+      const CATS = [
+        "Economia A 10º",
+        "Economia A 11º",
+        "Economia C 12º",
+        "Profissionais",
+        "Diversos"
+      ];
+
       const year = document.getElementById("year");
       year.textContent = new Date().getFullYear();
 
       const q = document.getElementById("q");
-      const cards = document.getElementById("cards");
+      const sectionsRoot = document.getElementById("sections");
       const empty = document.getElementById("empty");
-      const count = document.getElementById("count");
-      const openAll = document.getElementById("openAll");
+      const totalEl = document.getElementById("total");
+      const activeFilterEl = document.getElementById("activeFilter");
+      const chips = Array.from(document.querySelectorAll(".chip"));
 
       const items = Array.from(document.querySelectorAll("#pdf-list a")).map(a => ({
         href: a.getAttribute("href"),
-        title: a.dataset.title || a.textContent.trim(),
+        cat: (a.dataset.cat || "Diversos").trim(),
+        title: (a.dataset.title || a.textContent.trim()).trim(),
         tags: (a.dataset.tags || "").trim(),
         desc: (a.dataset.desc || "").trim()
       }));
-
-      function icon() {
-        return `
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M7 3h7l3 3v15a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z" stroke="currentColor" stroke-width="2" />
-            <path d="M14 3v4a1 1 0 0 0 1 1h4" stroke="currentColor" stroke-width="2" />
-          </svg>
-        `;
-      }
 
       function escapeHtml(str){
         return str.replace(/[&<>"']/g, m => ({
@@ -390,68 +301,81 @@
         }[m]));
       }
 
-      function render(list) {
-        cards.innerHTML = "";
-        count.textContent = list.length.toString();
-        empty.style.display = list.length ? "none" : "block";
+      let activeCat = "__all";
 
-        const frag = document.createDocumentFragment();
+      function setActiveChip(value){
+        activeCat = value;
+        chips.forEach(btn => {
+          const pressed = btn.dataset.filter === value;
+          btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+        });
+        activeFilterEl.textContent = value === "__all" ? "Todas" : value;
+        render();
+      }
 
-        list.forEach(doc => {
-          const tagText = doc.tags ? doc.tags.split(",")[0].trim() : "PDF";
-          const el = document.createElement("div");
-          el.className = "card";
-          el.innerHTML = `
-            <div class="cardTop">
-              <div style="display:flex; gap:10px; align-items:flex-start;">
-                <div style="opacity:.9">${icon()}</div>
-                <div>
-                  <p class="docTitle">${escapeHtml(doc.title)}</p>
-                  ${doc.desc ? `<p class="cardDesc">${escapeHtml(doc.desc)}</p>` : ""}
+      chips.forEach(btn => btn.addEventListener("click", () => setActiveChip(btn.dataset.filter)));
+
+      function matches(doc, term){
+        if (!term) return true;
+        const hay = (doc.title + " " + doc.tags + " " + doc.desc + " " + doc.cat).toLowerCase();
+        return hay.includes(term);
+      }
+
+      function render(){
+        const term = q.value.trim().toLowerCase();
+
+        const filtered = items.filter(doc => {
+          const catOk = (activeCat === "__all") || (doc.cat === activeCat);
+          return catOk && matches(doc, term);
+        });
+
+        totalEl.textContent = filtered.length.toString();
+        sectionsRoot.innerHTML = "";
+
+        const byCat = new Map(CATS.map(c => [c, []]));
+        filtered.forEach(doc => {
+          if (!byCat.has(doc.cat)) byCat.set(doc.cat, []);
+          byCat.get(doc.cat).push(doc);
+        });
+
+        let any = false;
+
+        byCat.forEach((docs, cat) => {
+          if (!docs.length) return;
+
+          any = true;
+
+          const section = document.createElement("div");
+          section.className = "section";
+
+          section.innerHTML = `
+            <div class="sectionHead">
+              <h2 class="sectionTitle">${escapeHtml(cat)}</h2>
+              <div class="sectionCount">${docs.length} documento(s)</div>
+            </div>
+            <div class="grid">
+              ${docs.map(d => `
+                <div class="card">
+                  <p class="docTitle">${escapeHtml(d.title)}</p>
+                  ${d.desc ? `<p class="docDesc">${escapeHtml(d.desc)}</p>` : ""}
+                  <div class="actions">
+                    <a class="btnLink" href="${d.href}" target="_blank" rel="noopener">Abrir PDF ↗</a>
+                    <a class="btnLink" href="${d.href}" download>Download</a>
+                  </div>
+                  ${d.tags ? `<div class="tags">${escapeHtml(d.tags)}</div>` : ""}
                 </div>
-              </div>
-              <span class="pill">${escapeHtml(tagText || "PDF")}</span>
+              `).join("")}
             </div>
-
-            <div class="actions">
-              <a class="link" href="${doc.href}" target="_blank" rel="noopener">
-                Abrir PDF <span aria-hidden="true">↗</span>
-              </a>
-              <a class="link" href="${doc.href}" download>
-                Download
-              </a>
-            </div>
-
-            ${doc.tags ? `<div style="color:var(--muted); font-size:12px;">${escapeHtml(doc.tags)}</div>` : ""}
           `;
-          frag.appendChild(el);
+
+          sectionsRoot.appendChild(section);
         });
 
-        cards.appendChild(frag);
+        empty.style.display = any ? "none" : "block";
       }
 
-      function filter() {
-        const term = q.value.trim().toLowerCase();
-        if (!term) return render(items);
-
-        const filtered = items.filter(d => {
-          const hay = (d.title + " " + d.tags + " " + d.desc).toLowerCase();
-          return hay.includes(term);
-        });
-        render(filtered);
-      }
-
-      openAll.addEventListener("click", () => {
-        const term = q.value.trim().toLowerCase();
-        const list = !term ? items : items.filter(d => (d.title + " " + d.tags + " " + d.desc).toLowerCase().includes(term));
-        // abre no máximo 12 para não ser abusivo
-        list.slice(0, 12).forEach(d => window.open(d.href, "_blank", "noopener"));
-      });
-
-      q.addEventListener("input", filter);
-
-      // Render inicial
-      render(items);
+      q.addEventListener("input", render);
+      render();
     })();
   </script>
 </body>
